@@ -22,9 +22,23 @@ Order By ride_length DESC
 Limit 10;
 
 -- ride_type Frequency
--- Calculates the Frequency of the Bike types used for rides 
+-- Calculates the Frequency of most popular bike types used 
 
 ct rideable_type, COUNT(rideable_type) AS Frequency
 From `portoflioprojectbikeshares.tripdata.March2022`
 Group By rideable_type 
 Order By Count(rideable_type) DESC
+
+-- Where statement
+-- Narrowing down the search to find start station names that only have "Michigan Ave & Oak St"
+
+SELECT start_station_name 
+FROM `portoflioprojectbikeshares.tripdata.March2022`
+WHERE start_station_name LIKE '%Michigan Ave & Oak St%';
+
+----------------------------------------------------------------------------
+
+Select s.start_station_id, s.start_station_name,s.start_lat, s.start_lng.*
+From `portoflioprojectbikeshares.tripdata.March2022` AS b
+LEFT JOIN statement AS s
+ON s.start_lat = b.start_lat AND s.start_lng = b.start_lng
