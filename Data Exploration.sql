@@ -36,7 +36,7 @@ SELECT start_station_name
 FROM `portoflioprojectbikeshares.tripdata.March2022`
 WHERE start_station_name LIKE '%Michigan Ave & Oak St%';
 
-----------------------------------------------------------------------------
+-- Join Statement 
 
 Select s.start_station_id, s.start_station_name,s.start_lat, s.start_lng.*
 From `portoflioprojectbikeshares.tripdata.March2022` AS b
